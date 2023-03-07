@@ -1,16 +1,90 @@
 {
-  "posts": [
+  "plants": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "type": "fruit",
+      "nom_plant": "tomate"
+    },
+    {
+      "id": 2,
+      "type": "fruit",
+      "nom_plant": "piment"
+    },
+    {
+      "id": 3,
+      "type": "fruit",
+      "nom_plant": "fraise"
+    },
+    {
+      "id": 4,
+      "type": "fruit",
+      "nom_plant": "mangue"
+    },
+    {
+      "id": 5,
+      "type": "fruit",
+      "nom_plant": "banane"
+    },
+    {
+      "id": "6",
+      "nom_plant": "arrachide",
+      "type": "fruit"
+    },
+    {
+      "id": "7",
+      "nom_plant": "piment vert",
+      "type": "fruit"
+    },
+    {
+      "id": "8",
+      "nom_plant": "arrachide garoua",
+      "type": "fruit"
     }
   ],
-  "comments": [
+  "paramsCulture": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "type": "some comment",
+      "nom_plante": "1",
+      "temps_croissance": "5",
+      "niv_phosphore": "5",
+      "niv_ph": "5",
+      "niv_azote": 5,
+      "niv_potasium": 5,
+      "taux_humidite": 5
+    },
+    {
+      "id": 2,
+      "type": "some comment",
+      "nom_plante": "1",
+      "temps_croissance": "5",
+      "niv_phosphore": "5",
+      "niv_ph": "5",
+      "niv_azote": 5,
+      "niv_potasium": 5,
+      "taux_humidite": 5
+    },
+    {
+      "id": 3,
+      "type": "some comment",
+      "nom_plante": "1",
+      "temps_croissance": "5",
+      "niv_phosphore": "5",
+      "niv_ph": "5",
+      "niv_azote": 5,
+      "niv_potasium": 5,
+      "taux_humidite": 5
+    },
+    {
+      "id": 4,
+      "type": "some comment",
+      "nom_plante": "1",
+      "temps_croissance": "5",
+      "niv_phosphore": "5",
+      "niv_ph": "5",
+      "niv_azote": 5,
+      "niv_potasium": 5,
+      "taux_humidite": 5
     }
   ],
   "profile": {

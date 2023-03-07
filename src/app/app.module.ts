@@ -39,6 +39,7 @@ import { PagesLoginComponent } from './pages/pages-login/pages-login.component';
 import { PagesError404Component } from './pages/pages-error404/pages-error404.component';
 import { PagesBlankComponent } from './pages/pages-blank/pages-blank.component';
 import { CulturesModule } from './cultures/cultures.module';
+import { ParamCultureModule } from './param-culture/param-culture.module';
 
 @NgModule({
   declarations: [
@@ -77,12 +78,13 @@ import { CulturesModule } from './cultures/cultures.module';
     PagesRegisterComponent,
     PagesLoginComponent,
     PagesError404Component,
-    PagesBlankComponent
+    PagesBlankComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CulturesModule
+    CulturesModule,
+    ParamCultureModule
   ],
   providers: [],
   bootstrap: [AppComponent]
