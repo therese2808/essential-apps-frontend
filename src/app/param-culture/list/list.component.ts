@@ -22,7 +22,7 @@ export class ListComponent implements OnInit {
     if (confirm('Do you want to delete this culture paramter')) {
       this.paramCultureService
         .deleteParamCulture(id)
-        .subscribe((res) => this.ngOnInit);
+        .subscribe((res) => this.ngOnInit());
     }
   }
 }

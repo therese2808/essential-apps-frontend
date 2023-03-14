@@ -1,1 +1,195 @@
-<p>add works!</p>
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>Add new plant parameters</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item">
+          <a routerLink="/cultures">Manage Culture</a>
+        </li>
+        <li class="breadcrumb-item active">Add Plants pamars</li>
+      </ol>
+    </nav>
+  </div>
+  <section class="section">
+    <div class="row d-flex justify-content-center">
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Add Plant params</h5>
+            <form
+              class="row g-3"
+              (submit)="save(form)"
+              novalidate
+              #form="ngForm"
+            >
+              <div class="col-md-12">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Plant Name"
+                  name="plantName"
+                  required
+                  #plantNameVar="ngModel"
+                  [(ngModel)]="plantParam.nom_plante"
+                  [ngClass]="{
+                    'is-invalid': plantNameVar.touched && !plantNameVar.valid
+                  }"
+                />
+                <div class="invalid-feedback">
+                  <span *ngIf="plantNameVar.errors?.['required']">
+                    Plant name is required
+                  </span>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Plant Type"
+                  name="plantType"
+                  required
+                  #plantTypeVar="ngModel"
+                  [(ngModel)]="plantParam.type"
+                  [ngClass]="{
+                    'is-invalid': plantTypeVar.touched && !plantTypeVar.valid
+                  }"
+                />
+              </div>
+              <div class="invalid-feedback">
+                <span *ngIf="plantTypeVar.errors?.['required']">
+                  Plant type is required
+                </span>
+              </div>
+              <div class="col-md-6">
+                <input
+                  type="number"
+                  name="plantPh"
+                  class="form-control"
+                  placeholder="Ph"
+                  required
+                  #plantPhVar="ngModel"
+                  [(ngModel)]="plantParam.niv_ph"
+                  [ngClass]="{
+                    'is-invalid': plantPhVar.touched && !plantPhVar.valid
+                  }"
+                />
+              </div>
+              <div class="invalid-feedback">
+                <span *ngIf="plantPhVar.errors?.['required']">
+                  Plant type is required
+                </span>
+              </div>
+              <div class="col-md-4">
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Phosphore"
+                  name="phosphore"
+                  required
+                  #phosphoreVar="ngModel"
+                  [(ngModel)]="plantParam.niv_phosphore"
+                  [ngClass]="{
+                    'is-invalid': phosphoreVar.touched && !phosphoreVar.valid
+                  }"
+                />
+                <div class="invalid-feedback">
+                  <span *ngIf="phosphoreVar.errors?.['required']">
+                    Plant phosphore level is required
+                  </span>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Nitrogen"
+                  name="nitrogen"
+                  required
+                  #nitrogenVar="ngModel"
+                  [(ngModel)]="plantParam.niv_azote"
+                  [ngClass]="{
+                    'is-invalid': nitrogenVar.touched && !nitrogenVar.valid
+                  }"
+                />
+                <div class="invalid-feedback">
+                  <span *ngIf="nitrogenVar.errors?.['required']">
+                    Plant nitrogen level is required
+                  </span>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Potatium"
+                  name="potatium"
+                  required
+                  #potationVar="ngModel"
+                  [(ngModel)]="plantParam.niv_potasium"
+                  [ngClass]="{
+                    'is-invalid': potationVar.touched && !potationVar.valid
+                  }"
+                />
+                <div class="invalid-feedback">
+                  <span *ngIf="potationVar.errors?.['required']">
+                    Plant potatium level is required
+                  </span>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Growth duration"
+                  name="growthDuration"
+                  required
+                  #growthDurationVar="ngModel"
+                  [(ngModel)]="plantParam.temps_croissance"
+                  [ngClass]="{
+                    'is-invalid':
+                      growthDurationVar.touched && !growthDurationVar.valid
+                  }"
+                />
+                <div class="invalid-feedback">
+                  <span *ngIf="growthDurationVar.errors?.['required']">
+                    Plant growth duration is required
+                  </span>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Soil moisture"
+                  name="soilMoisture"
+                  required
+                  #soilMoistureVar="ngModel"
+                  [(ngModel)]="plantParam.taux_humidite"
+                  [ngClass]="{
+                    'is-invalid':
+                      soilMoistureVar.touched && !soilMoistureVar.valid
+                  }"
+                />
+                <div class="invalid-feedback">
+                  <span *ngIf="soilMoistureVar.errors?.['required']">
+                    Plant soil moisture is required
+                  </span>
+                </div>
+              </div>
+              <div class="text-center">
+                <button
+                  type="submit"
+                  [disabled]="!form.valid"
+                  class="btn btn-primary form-btn w-100"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

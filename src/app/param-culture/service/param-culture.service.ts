@@ -23,4 +23,12 @@ export class ParamCultureService {
   public deleteParamCulture(id: number): Observable<ParamCulture> {
     return this.http.delete<ParamCulture>(`${this.BASE_URL}/${id}`);
   }
+
+  public addPlant(paramsCulture: ParamCulture): Observable<ParamCulture> {
+    return this.http.post<ParamCulture>(
+      this.BASE_URL,
+      JSON.stringify(paramsCulture),
+      this.httpOptions
+    );
+  }
 }

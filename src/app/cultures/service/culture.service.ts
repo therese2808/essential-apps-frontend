@@ -27,6 +27,10 @@ export class CultureService {
     );
   }
 
+  public getPlantById(id: number): Observable<Plant> {
+    return this.http.get<Plant>(`${this.BASE_URL}/${id}`);
+  }
+
   public deletePlant(id: number): Observable<Plant> {
     return this.http.delete<Plant>(`${this.BASE_URL}/${id}`);
   }

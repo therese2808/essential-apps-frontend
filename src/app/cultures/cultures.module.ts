@@ -5,7 +5,7 @@ import { CulturesRoutingModule } from './cultures-routing.module';
 import { ListComponent } from './list/list.component';
 import { AddComponent } from './add/add.component';
 import { EditComponent } from './edit/edit.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -17,6 +17,7 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     HttpClientModule,
     RouterModule,
+    ReactiveFormsModule,
   ],
 })
 export class CulturesModule {}

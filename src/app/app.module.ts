@@ -40,6 +40,7 @@ import { PagesError404Component } from './pages/pages-error404/pages-error404.co
 import { PagesBlankComponent } from './pages/pages-blank/pages-blank.component';
 import { CulturesModule } from './cultures/cultures.module';
 import { ParamCultureModule } from './param-culture/param-culture.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,9 @@ import { ParamCultureModule } from './param-culture/param-culture.module';
     BrowserModule,
     AppRoutingModule,
     CulturesModule,
-    ParamCultureModule
+    ParamCultureModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
