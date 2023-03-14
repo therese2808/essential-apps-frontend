@@ -31,4 +31,15 @@ export class ParamCultureService {
       this.httpOptions
     );
   }
+
+  public updateParamPlant(
+    id: number,
+    paramCulture: ParamCulture
+  ): Observable<ParamCulture> {
+    return this.http.put<ParamCulture>(`${this.BASE_URL}/${id}`, paramCulture);
+  }
+
+  public getParamCultureById(id: number): Observable<ParamCulture> {
+    return this.http.get<ParamCulture>(`${this.BASE_URL}/${id}`);
+  }
 }

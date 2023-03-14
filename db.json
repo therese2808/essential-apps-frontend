@@ -1,7 +1,7 @@
 {
   "plants": [
     {
-      "type": "arbre",
+      "type": "arbr",
       "nom_plant": "mangue",
       "id": 1
     },
@@ -28,15 +28,15 @@
   ],
   "paramsCulture": [
     {
-      "id": 1,
-      "type": "some comment",
-      "nom_plante": "1",
-      "temps_croissance": "5",
-      "niv_phosphore": "5",
-      "niv_ph": "5",
-      "niv_azote": 5,
-      "niv_potasium": 5,
-      "taux_humidite": 5
+      "type": "qsdqsd",
+      "nom_plante": "sdsdq",
+      "temps_croissance": 654,
+      "niv_phosphore": 6546,
+      "niv_ph": 52,
+      "niv_azote": 6546,
+      "niv_potasium": 546,
+      "taux_humidite": 654,
+      "id": 1
     },
     {
       "id": 2,
@@ -49,8 +49,5 @@
       "niv_potasium": 5,
       "taux_humidite": 5
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

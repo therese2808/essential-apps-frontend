@@ -26,7 +26,7 @@ export class EditComponent implements OnInit {
       .getPlantById(this.router.snapshot.params['id'])
       .subscribe((res) => {
         this.plant = res;
-        console.log(res);
+        this.editCulture.patchValue(res);
       });
   }
 

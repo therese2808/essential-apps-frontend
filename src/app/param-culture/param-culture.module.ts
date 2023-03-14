@@ -5,7 +5,7 @@ import { ParamCultureRoutingModule } from './param-culture-routing.module';
 import { ListComponent } from './list/list.component';
 import { AddComponent } from './add/add.component';
 import { UpdateComponent } from './update/update.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     ParamCultureRoutingModule,
     FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ParamCultureModule { }
