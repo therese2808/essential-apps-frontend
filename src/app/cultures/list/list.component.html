@@ -19,83 +19,29 @@
               <div class="col-lg-6"><p>List of cultures.</p></div>
               <div class="col-lg-2 offset-4">
                 <a class="btn btn-primary rounded-pill" routerLink="new-plant">
-                  <i class="bi bi-plus add-btn"></i>ADD</a
-                >
+                  <i class="bi bi-plus add-btn"></i
+                ></a>
               </div>
             </div>
-            <table class="table datatable">
+            <table class="table table-hover">
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Position</th>
-                  <th scope="col">Age</th>
-                  <th scope="col">Start Date</th>
+                  <th scope="col">Plant Name</th>
+                  <th scope="col">Type</th>
                   <th scope="col">Actions</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Brandon Jacob</td>
-                  <td>Designer</td>
-                  <td>28</td>
-                  <td>2016-05-25</td>
+                <tr *ngFor="let plant of plantList">
+                  <th scope="row">{{ plant.id }}</th>
+                  <td>{{ plant.nom_plant }}</td>
+                  <td>{{ plant.type }}</td>
                   <td>
-                    <i class="bi bi-trash"></i>&nbsp;
-                    <a routerLink="edit-plant"
-                      ><i class="bi bi-pencil-square"></i
-                    ></a>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Bridie Kessler</td>
-                  <td>Developer</td>
-                  <td>35</td>
-                  <td>2014-12-05</td>
-                  <td>
-                    <i class="bi bi-trash"></i>&nbsp;
-                    <a routerLink="edit-plant"
-                      ><i class="bi bi-pencil-square"></i
-                    ></a>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Ashleigh Langosh</td>
-                  <td>Finance</td>
-                  <td>45</td>
-                  <td>2011-08-12</td>
-                  <td>
-                    <i class="bi bi-trash"></i>&nbsp;
-                    <a routerLink="edit-plant"
-                      ><i class="bi bi-pencil-square"></i
-                    ></a>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">4</th>
-                  <td>Angus Grady</td>
-                  <td>HR</td>
-                  <td>34</td>
-                  <td>2012-06-11</td>
-                  <td>
-                    <i class="bi bi-trash"></i>&nbsp;
-                    <a routerLink="edit-plant"
-                      ><i class="bi bi-pencil-square"></i
-                    ></a>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">5</th>
-                  <td>Raheem Lehner</td>
-                  <td>Dynamic Division Officer</td>
-                  <td>47</td>
-                  <td>2011-04-19</td>
-                  <td>
-                    <i class="bi bi-trash"></i>&nbsp;
-                    <a routerLink="edit-plant"
+                    <a (click)="delete(plant.id)" class="btn-clickable"
+                      ><i class="bi bi-trash"></i></a
+                    >&nbsp;
+                    <a routerLink="edit-plant/{{ plant.id }}"
                       ><i class="bi bi-pencil-square"></i
                     ></a>
                   </td>

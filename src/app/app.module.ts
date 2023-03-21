@@ -39,8 +39,13 @@ import { PagesLoginComponent } from './pages/pages-login/pages-login.component';
 import { PagesError404Component } from './pages/pages-error404/pages-error404.component';
 import { PagesBlankComponent } from './pages/pages-blank/pages-blank.component';
 import { CulturesModule } from './cultures/cultures.module';
+<<<<<<< HEAD
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+=======
+import { ParamCultureModule } from './param-culture/param-culture.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+>>>>>>> 0692b99ac2d31a0bc3ca0bb061db2cc84a070b10
 
 @NgModule({
   declarations: [
@@ -79,14 +84,20 @@ import {HttpClientModule} from '@angular/common/http';
     PagesRegisterComponent,
     PagesLoginComponent,
     PagesError404Component,
-    PagesBlankComponent
+    PagesBlankComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CulturesModule,
+<<<<<<< HEAD
     FormsModule,
     HttpClientModule
+=======
+    ParamCultureModule,
+    ReactiveFormsModule,
+    FormsModule
+>>>>>>> 0692b99ac2d31a0bc3ca0bb061db2cc84a070b10
   ],
   providers: [],
   bootstrap: [AppComponent]

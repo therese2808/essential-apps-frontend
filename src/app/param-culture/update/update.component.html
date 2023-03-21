@@ -1,0 +1,110 @@
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>Edit Plant params</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item">
+          <a routerLink="/cultures">Manage Culture</a>
+        </li>
+        <li class="breadcrumb-item active">Edit Plant params</li>
+      </ol>
+    </nav>
+  </div>
+  <section class="section">
+    <div class="row d-flex justify-content-center">
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Edit plant</h5>
+            <form
+              class="row g-3"
+              [formGroup]="editParamPlantForm"
+              (ngSubmit)="saveData()"
+            >
+              <div class="col-md-12">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Plant name"
+                  [value]="paramCulture.nom_plante"
+                  formControlName="nom_plante"
+                />
+              </div>
+              <div class="col-md-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Plant Type"
+                  [value]="paramCulture.type"
+                  formControlName="type"
+                />
+              </div>
+              <div class="col-md-6">
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Plant PH"
+                  [value]="paramCulture.niv_ph"
+                  formControlName="niv_ph"
+                />
+              </div>
+
+              <div class="col-md-4">
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Phosphore"
+                  [value]="paramCulture.niv_phosphore"
+                  formControlName="niv_phosphore"
+                />
+              </div>
+              <div class="col-md-4">
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Nitrogen"
+                  [value]="paramCulture.niv_azote"
+                  formControlName="niv_azote"
+                />
+              </div>
+              <div class="col-md-4">
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Potatium"
+                  [value]="paramCulture.niv_potasium"
+                  formControlName="niv_potasium"
+                />
+              </div>
+              <div class="col-md-6">
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Soil moisture"
+                  [value]="paramCulture.taux_humidite"
+                  formControlName="taux_humidite"
+                />
+              </div>
+              <div class="col-md-6">
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Growth duration"
+                  [value]="paramCulture.temps_croissance"
+                  formControlName="temps_croissance"
+                />
+              </div>
+
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary form-btn w-100">
+                  edit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

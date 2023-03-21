@@ -33,6 +33,7 @@ import { PagesLoginComponent } from './pages/pages-login/pages-login.component';
 import { PagesRegisterComponent } from './pages/pages-register/pages-register.component';
 import { UsersProfileComponent } from './pages/users-profile/users-profile.component';
 import { CulturesModule } from './cultures/cultures.module';
+import { ParamCultureModule } from './param-culture/param-culture.module';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -69,7 +70,11 @@ const routes: Routes = [
   { path: 'pages-register', component: PagesRegisterComponent },
   { path: 'user-profile', component: UsersProfileComponent },
   { path: 'cultures', loadChildren: () => CulturesModule },
+<<<<<<< HEAD
   { path: 'sensor', loadChildren: () => import('./sensor/sensor.module').then(m => m.SensorModule) },
+=======
+  { path: 'cultures/params', loadChildren: () => ParamCultureModule },
+>>>>>>> 0692b99ac2d31a0bc3ca0bb061db2cc84a070b10
 ];
 
 @NgModule({

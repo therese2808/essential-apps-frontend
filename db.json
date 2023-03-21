@@ -1,19 +1,53 @@
 {
-  "posts": [
+  "plants": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "type": "arbr",
+      "nom_plant": "mangue",
+      "id": 1
+    },
+    {
+      "type": "fruit",
+      "nom_plant": "banane",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "type": "fruit",
+      "nom_plant": "fraise"
+    },
+    {
+      "id": 4,
+      "type": "fruit",
+      "nom_plant": "mangue"
+    },
+    {
+      "id": 5,
+      "type": "fruit",
+      "nom_plant": "banane"
     }
   ],
-  "comments": [
+  "paramsCulture": [
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "type": "qsdqsd",
+      "nom_plante": "sdsdq",
+      "temps_croissance": 654,
+      "niv_phosphore": 6546,
+      "niv_ph": 52,
+      "niv_azote": 6546,
+      "niv_potasium": 546,
+      "taux_humidite": 654,
+      "id": 1
+    },
+    {
+      "id": 2,
+      "type": "some comment",
+      "nom_plante": "1",
+      "temps_croissance": "5",
+      "niv_phosphore": "5",
+      "niv_ph": "5",
+      "niv_azote": 5,
+      "niv_potasium": 5,
+      "taux_humidite": 5
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

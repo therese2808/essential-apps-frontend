@@ -1,0 +1,74 @@
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>Plants</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item">Manage Culture</li>
+        <li class="breadcrumb-item active">List Plants</li>
+      </ol>
+    </nav>
+  </div>
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Plants</h5>
+            <div class="row">
+              <div class="col-lg-6"><p>List of cultures.</p></div>
+              <div class="col-lg-2 offset-4">
+                <a
+                  class="btn btn-primary rounded-pill"
+                  title="add new plant growth parameters"
+                  routerLink="/cultures/params/new"
+                >
+                  <i class="bi bi-plus add-btn"></i
+                ></a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 col-12">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">Plant Type</th>
+                      <th scope="col">Plant Name</th>
+                      <th scope="col">Growth Time</th>
+                      <th scope="col">Ph</th>
+                      <th scope="col">Phosphore</th>
+                      <th scope="col">Nitrogen</th>
+                      <th scope="col">Potatium</th>
+                      <th scope="col">Soil Moisture</th>
+                      <th scope="col">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of paramsCultureList">
+                      <td>{{ item.type }}</td>
+                      <td>{{ item.nom_plante }}</td>
+                      <td>{{ item.temps_croissance }}</td>
+                      <td>{{ item.niv_ph }}</td>
+                      <td>{{ item.niv_phosphore }}</td>
+                      <td>{{ item.niv_azote }}</td>
+                      <td>{{ item.niv_potasium }}</td>
+                      <td>{{ item.taux_humidite }}</td>
+                      <td>
+                        <a (click)="delete(item.id)" class="btn-clickable"
+                          ><i class="bi bi-trash"></i></a
+                        >&nbsp;
+                        <a routerLink="edit-culture-param/{{ item.id }}"
+                          ><i class="bi bi-pencil-square"></i
+                        ></a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

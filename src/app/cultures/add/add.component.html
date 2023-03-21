@@ -17,32 +17,76 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Add New Plant</h5>
-            <form class="row g-3">
+            <form
+              class="row g-3"
+              novalidate
+              #form="ngForm"
+              (submit)="save(form)"
+            >
               <div class="col-md-12">
                 <input
                   type="text"
                   class="form-control"
-                  placeholder="Your Name"
+                  placeholder="Id"
+                  #idVar="ngModel"
+                  required
+                  name="id"
+                  [(ngModel)]="plant.id"
+                  [ngClass]="{
+                    'is-invalid': idVar.touched && !idVar.valid
+                  }"
                 />
               </div>
-              <div class="col-md-6">
-                <input type="email" class="form-control" placeholder="Email" />
+              <div class="invalid-feedback">
+                <span *ngIf="nomPlantVar.errors?.['required']">
+                  Plant id is required
+                </span>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-12">
                 <input
-                  type="password"
+                  type="text"
                   class="form-control"
-                  placeholder="Password"
+                  placeholder="Plant Name"
+                  #nomPlantVar="ngModel"
+                  name="plantName"
+                  required
+                  [(ngModel)]="plant.nom_plant"
+                  [ngClass]="{
+                    'is-invalid': nomPlantVar.touched && !nomPlantVar.valid
+                  }"
                 />
               </div>
-              <div class="col-12">
-                <input type="text" class="form-control" placeholder="Address" />
+              <div class="invalid-feedback">
+                <span *ngIf="nomPlantVar.errors?.['required']">
+                  Plant name is required
+                </span>
+              </div>
+              <div class="col-md-12">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Type Plant"
+                  #typePlantVar="ngModel"
+                  name="type"
+                  [(ngModel)]="plant.type"
+                  [ngClass]="{
+                    'is-invalid': typePlantVar.touched && !typePlantVar.valid
+                  }"
+                />
+                <div class="invalid-feedback">
+                  <span *ngIf="typePlantVar.errors?.['required']">
+                    Plant name is required
+                  </span>
+                </div>
               </div>
               <div class="text-center">
-                <button type="submit" class="btn btn-primary form-btn">
+                <button
+                  type="submit"
+                  [disabled]="!form.valid"
+                  class="btn btn-primary form-btn"
+                >
                   Submit
                 </button>
-                <button type="reset" class="btn btn-secondary">Reset</button>
               </div>
             </form>
           </div>

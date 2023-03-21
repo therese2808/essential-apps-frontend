@@ -16,33 +16,34 @@
       <div class="col-lg-6">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Add New Plant</h5>
-            <form class="row g-3">
+            <h5 class="card-title">Edit plant</h5>
+            <form
+              class="row g-3"
+              [formGroup]="editCulture"
+              (ngSubmit)="saveData()"
+            >
               <div class="col-md-12">
                 <input
                   type="text"
                   class="form-control"
-                  placeholder="Your Name"
+                  placeholder="Plant Type"
+                  [value]="plant.type"
+                  formControlName="type"
                 />
               </div>
-              <div class="col-md-6">
-                <input type="email" class="form-control" placeholder="Email" />
-              </div>
-              <div class="col-md-6">
+              <div class="col-md-12">
                 <input
-                  type="password"
+                  type="text"
                   class="form-control"
-                  placeholder="Password"
+                  placeholder="Plant name"
+                  [value]="plant.nom_plant"
+                  formControlName="nom_plant"
                 />
-              </div>
-              <div class="col-12">
-                <input type="text" class="form-control" placeholder="Address" />
               </div>
               <div class="text-center">
-                <button type="submit" class="btn btn-primary form-btn">
-                  Submit
+                <button type="submit" class="btn btn-primary form-btn w-100">
+                  edit
                 </button>
-                <button type="reset" class="btn btn-secondary">Reset</button>
               </div>
             </form>
           </div>
