@@ -69,6 +69,7 @@ const routes: Routes = [
   { path: 'pages-register', component: PagesRegisterComponent },
   { path: 'user-profile', component: UsersProfileComponent },
   { path: 'cultures', loadChildren: () => CulturesModule },
+  { path: 'sensor', loadChildren: () => import('./sensor/sensor.module').then(m => m.SensorModule) },
 ];
 
 @NgModule({
