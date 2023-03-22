@@ -41,6 +41,7 @@ import { PagesBlankComponent } from './pages/pages-blank/pages-blank.component';
 import { CulturesModule } from './cultures/cultures.module';
 import { ParamCultureModule } from './param-culture/param-culture.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
@@ -87,7 +88,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CulturesModule,
     ParamCultureModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    FileUploadModule
   ],
   providers: [],
   bootstrap: [AppComponent]

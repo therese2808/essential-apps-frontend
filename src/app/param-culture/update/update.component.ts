@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ParamCultureService } from '../service/param-culture.service';
+import { ParamService } from '../service/param-culture.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ParamCulture } from '../model/ParamCulture';
+import { Param } from '../model/Param';
+
 
 @Component({
   selector: 'app-update',
@@ -10,7 +11,7 @@ import { ParamCulture } from '../model/ParamCulture';
   styleUrls: ['./update.component.css'],
 })
 export class UpdateComponent implements OnInit {
-  plantParam!: ParamCulture;
+  plantParam!: Param;
   editParamPlantForm = new FormGroup({
     type: new FormControl(),
     nom_plante: new FormControl(),
@@ -23,13 +24,13 @@ export class UpdateComponent implements OnInit {
   });
 
   constructor(
-    private paramCultureService: ParamCultureService,
+    private paramService: ParamService,
     private routeActivated: ActivatedRoute,
     private route: Router
   ) {}
-  paramCulture!: ParamCulture;
+  paramCulture!: Param;
   ngOnInit(): void {
-    this.paramCultureService
+    this.paramService
       .getParamCultureById(this.routeActivated.snapshot.params['id'])
       .subscribe((res) => {
         this.paramCulture = res;
@@ -38,10 +39,10 @@ export class UpdateComponent implements OnInit {
   }
 
   saveData() {
-    this.paramCultureService
+    this.paramService
       .updateParamPlant(
         this.routeActivated.snapshot.params['id'],
-        this.editParamPlantForm.value as ParamCulture
+        this.editParamPlantForm.value as Param
       )
       .subscribe((res) => this.route.navigateByUrl('/cultures/params'));
   }

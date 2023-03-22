@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ParamCulture } from '../model/ParamCulture';
-import { Plant } from 'src/app/cultures/model/culture.model';
-import { ParamCultureService } from '../service/param-culture.service';
+import { Param } from '../model/Param';
+import { Plant } from 'src/app/cultures/model/plant.model';
+import { ParamService } from '../service/param-culture.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
@@ -11,14 +11,14 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./add.component.css'],
 })
 export class AddComponent implements OnInit {
-  plantParam = new ParamCulture();
+  plantParam = new Param();
   constructor(
-    private paramCultureService: ParamCultureService,
+    private paramCultureService: ParamService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.plantParam = new ParamCulture();
+    this.plantParam = new Param();
   }
 
   save(form: NgForm) {

@@ -7,47 +7,32 @@
         <li class="breadcrumb-item">Manage Culture</li>
         <li class="breadcrumb-item active">List Plants</li>
       </ol>
+      <a routerLink="new-plant" class="btn btn-primary">add new plant</a>
     </nav>
   </div>
   <section class="section">
-    <div class="row">
-      <div class="col-lg-12">
+    <div class="row align-items-top">
+      <div class="col-lg-3" *ngFor="let plant of plantList">
         <div class="card">
+          <img src="assets/img/card.jpg" class="card-img-top" alt="..." />
           <div class="card-body">
-            <h5 class="card-title">Plants</h5>
-            <div class="row">
-              <div class="col-lg-6"><p>List of cultures.</p></div>
-              <div class="col-lg-2 offset-4">
-                <a class="btn btn-primary rounded-pill" routerLink="new-plant">
-                  <i class="bi bi-plus add-btn"></i
-                ></a>
-              </div>
-            </div>
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Plant Name</th>
-                  <th scope="col">Type</th>
-                  <th scope="col">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let plant of plantList">
-                  <th scope="row">{{ plant.id }}</th>
-                  <td>{{ plant.nom_plant }}</td>
-                  <td>{{ plant.type }}</td>
-                  <td>
-                    <a (click)="delete(plant.id)" class="btn-clickable"
-                      ><i class="bi bi-trash"></i></a
-                    >&nbsp;
-                    <a routerLink="edit-plant/{{ plant.id }}"
-                      ><i class="bi bi-pencil-square"></i
-                    ></a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <h5 class="card-title">
+              {{ plant.nom_plante | lowercase }}
+            </h5>
+            <a
+              routerLink="plant-details/{{ plant.param.id }}"
+              title="View growth params"
+              class="btn-clickable btn-icon"
+              ><i class="bi bi-eye"></i
+            ></a>
+            <a
+              routerLink="edit-plant/{{ plant.id }}"
+              class="btn-clickable btn-icon"
+              ><i class="bi bi-pencil-square"></i
+            ></a>
+            <a (click)="delete(plant.id)" class="btn-clickable btn-icon"
+              ><i class="bi bi-trash"></i
+            ></a>
           </div>
         </div>
       </div>

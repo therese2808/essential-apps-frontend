@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { CultureService } from '../service/culture.service';
+import { PlantService } from '../service/plant.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Plant } from '../model/culture.model';
+import { Plant } from '../model/plant.model';
 
 @Component({
   selector: 'app-edit',
@@ -11,18 +11,18 @@ import { Plant } from '../model/culture.model';
 })
 export class EditComponent implements OnInit {
   editCulture = new FormGroup({
-    type: new FormControl(),
-    nom_plant: new FormControl(),
+    urlImg: new FormControl(),
+    nom_plante: new FormControl(),
   });
 
   constructor(
-    private cultureService: CultureService,
+    private plantService: PlantService,
     private router: ActivatedRoute,
     private route: Router
   ) {}
   plant!: Plant;
   ngOnInit(): void {
-    this.cultureService
+    this.plantService
       .getPlantById(this.router.snapshot.params['id'])
       .subscribe((res) => {
         this.plant = res;
@@ -31,7 +31,7 @@ export class EditComponent implements OnInit {
   }
 
   saveData() {
-    this.cultureService
+    this.plantService
       .updatePlant(
         this.router.snapshot.params['id'],
         this.editCulture.value as Plant

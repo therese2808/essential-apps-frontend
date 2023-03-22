@@ -1,75 +1,23 @@
-<form
-              novalidate
-              class="add_form justify-content-center"
-              (ngSubmit)="save(form)"
-              #form="ngForm"
-            >
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Id</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  [(ngModel)]="plant.id"
-                  #idVar="ngModel"
-                  name="id"
-                  [ngClass]="{
-                    'is-invalid': idVar.touched && !idVar.valid
-                  }"
-                  required
-                />
-                <div class="invalid-feedback">
-                  <span *ngIf="idVar.errors?.['required']">
-                    Id is required
-                  </span>
-                </div>
-              </div>
-              <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label"
-                  >Plant Name</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  [(ngModel)]="plant.nom_plant"
-                  #plantNameVar="ngModel"
-                  [ngClass]="{
-                    'is-invalid': plantNameVar.touched && !plantNameVar.valid
-                  }"
-                  name="plantName"
-                  required
-                />
-                <div class="invalid-feedback">
-                  <span *ngIf="plantNameVar.errors?.['required'] ">
-                    Plant name is required
-                  </span>
-                </div>
-              </div>
-              <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label"
-                  >Plant Type</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  [(ngModel)]="plant.type"
-                  #typeVar="ngModel"
-                  [ngClass]="{
-                    'is-invalid': typeVar.touched && !typeVar.valid
-                  }"
-                  name="type"
-                  required
-                />
-                <div class="invalid-feedback">
-                  <span *ngIf="typeVar.errors?.['required'] ">
-                    Plant type is required
-                  </span>
-                </div>
-              </div>
-              <button
-                type="submit"
-                [disabled]="!form.valid"
-                class="btn btn-primary w-100"
-              >
-                Submit
-              </button>
-            </form>
+<table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Plant Name</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let plant of plantList">
+                  <td>{{ plant.nom_plante }}</td>
+                  <td>{{ plant.urlImg }}</td>
+                  <td>
+                    <a (click)="delete(plant.id)" class="btn-clickable"
+                      ><i class="bi bi-trash"></i></a
+                    >&nbsp;
+                    <a routerLink="edit-plant/{{ plant.id }}"
+                      ><i class="bi bi-pencil-square"></i
+                    ></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>

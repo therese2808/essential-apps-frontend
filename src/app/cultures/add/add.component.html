@@ -13,78 +13,47 @@
   </div>
   <section class="section">
     <div class="row d-flex justify-content-center">
-      <div class="col-lg-6">
+      <div class="col-lg-8">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Add New Plant</h5>
             <form
               class="row g-3"
               novalidate
-              #form="ngForm"
-              (submit)="save(form)"
+              [formGroup]="addParamCultureForm"
+              (ngSubmit)="saveData()"
             >
               <div class="col-md-12">
                 <input
                   type="text"
                   class="form-control"
-                  placeholder="Id"
-                  #idVar="ngModel"
-                  required
-                  name="id"
-                  [(ngModel)]="plant.id"
-                  [ngClass]="{
-                    'is-invalid': idVar.touched && !idVar.valid
-                  }"
-                />
-              </div>
-              <div class="invalid-feedback">
-                <span *ngIf="nomPlantVar.errors?.['required']">
-                  Plant id is required
-                </span>
-              </div>
-              <div class="col-md-12">
-                <input
-                  type="text"
-                  class="form-control"
                   placeholder="Plant Name"
-                  #nomPlantVar="ngModel"
                   name="plantName"
-                  required
-                  [(ngModel)]="plant.nom_plant"
-                  [ngClass]="{
-                    'is-invalid': nomPlantVar.touched && !nomPlantVar.valid
-                  }"
+                  formControlName="nom_plante"
                 />
               </div>
               <div class="invalid-feedback">
-                <span *ngIf="nomPlantVar.errors?.['required']">
+                <span *ngIf="!addParamCultureForm.get('nom_plant')?.valid">
                   Plant name is required
                 </span>
               </div>
               <div class="col-md-12">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Type Plant"
-                  #typePlantVar="ngModel"
-                  name="type"
-                  [(ngModel)]="plant.type"
-                  [ngClass]="{
-                    'is-invalid': typePlantVar.touched && !typePlantVar.valid
-                  }"
-                />
+                <div class="input-group mb-3">
+                  <input
+                    type="file"
+                    class="form-control"
+                    id="inputGroupFile02"
+                  />
+                  <label class="input-group-text" for="inputGroupFile02"
+                    >Upload</label
+                  >
+                </div>
                 <div class="invalid-feedback">
-                  <span *ngIf="typePlantVar.errors?.['required']">
-                    Plant name is required
-                  </span>
+                  <span> Plant name is required </span>
                 </div>
               </div>
               <div class="text-center">
-                <button
-                  type="submit"
-                  [disabled]="!form.valid"
-                  class="btn btn-primary form-btn"
-                >
+                <button type="submit" class="btn btn-primary form-btn w-100">
                   Submit
                 </button>
               </div>

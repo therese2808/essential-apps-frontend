@@ -22,24 +22,6 @@
               [formGroup]="editParamPlantForm"
               (ngSubmit)="saveData()"
             >
-              <div class="col-md-12">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Plant name"
-                  [value]="paramCulture.nom_plante"
-                  formControlName="nom_plante"
-                />
-              </div>
-              <div class="col-md-6">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Plant Type"
-                  [value]="paramCulture.type"
-                  formControlName="type"
-                />
-              </div>
               <div class="col-md-6">
                 <input
                   type="number"

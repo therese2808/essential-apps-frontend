@@ -16,26 +16,26 @@
       "nom_plant": "fraise"
     },
     {
-      "id": 4,
-      "type": "fruit",
-      "nom_plant": "mangue"
+      "type": "personne20",
+      "nom_plant": "Ousman",
+      "id": "50"
     },
     {
-      "id": 5,
-      "type": "fruit",
-      "nom_plant": "banane"
+      "type": "fleure",
+      "nom_plant": "Haricot",
+      "id": "xIXQZlo"
     }
   ],
   "paramsCulture": [
     {
       "type": "qsdqsd",
       "nom_plante": "sdsdq",
-      "temps_croissance": 654,
-      "niv_phosphore": 6546,
+      "temps_croissance": 52,
+      "niv_phosphore": 52,
       "niv_ph": 52,
-      "niv_azote": 6546,
-      "niv_potasium": 546,
-      "taux_humidite": 654,
+      "niv_azote": 52,
+      "niv_potasium": 52,
+      "taux_humidite": 52,
       "id": 1
     },
     {

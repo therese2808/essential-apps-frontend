@@ -8,9 +8,10 @@ import { EditComponent } from './edit/edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { ListCultureParamComponent } from './list-culture-param/list-culture-param.component';
 
 @NgModule({
-  declarations: [ListComponent, AddComponent, EditComponent],
+  declarations: [ListComponent, AddComponent, EditComponent, ListCultureParamComponent],
   imports: [
     CommonModule,
     CulturesRoutingModule,

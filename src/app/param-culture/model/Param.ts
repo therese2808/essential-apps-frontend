@@ -1,7 +1,5 @@
-export class ParamCulture {
+export class Param {
   id!: number;
-  type!: string;
-  nom_plante!: string;
   temps_croissance!: string;
   niv_phosphore!: string;
   niv_ph!: number;

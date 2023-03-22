@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CultureService } from '../service/culture.service';
-import { NgForm } from '@angular/forms';
-import { Plant } from '../model/culture.model';
+import { PlantService } from '../service/plant.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Plant } from '../model/plant.model';
 import { Router } from '@angular/router';
+import {FileUploader} from "ng2-file-upload"
 
 @Component({
   selector: 'app-add',
@@ -11,16 +12,30 @@ import { Router } from '@angular/router';
 })
 export class AddComponent implements OnInit {
   plant = new Plant();
-  constructor(private cultureService: CultureService, private router: Router) {}
+  uploader!: FileUploader;
+  constructor(private plantService: PlantService, private router: Router) {}
+
+  // intializeFileUploader(){
+  //   this.uploader = new FileUploader({
+  //     url:
+  //   })
+  //}
 
   ngOnInit(): void {
     this.plant = new Plant();
   }
 
-  save(form: NgForm): void {
-    this.cultureService.addPlant(this.plant).subscribe((res) => {
-      console.log('vidéo créer avec succès!');
-      this.router.navigateByUrl('/cultures');
-    });
+  addParamCultureForm = new FormGroup({
+    urlImg: new FormControl('', Validators.required),
+    nom_plante: new FormControl('', Validators.required),
+  });
+
+  saveData(): void {
+    this.plantService
+      .addPlant(this.addParamCultureForm.value as Plant)
+      .subscribe((res) => {
+        console.log('vidéo créer avec succès!');
+        this.router.navigateByUrl('/cultures');
+      });
   }
 }

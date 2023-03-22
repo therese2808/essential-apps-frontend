@@ -3,9 +3,9 @@
     <h1>Plants</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
-        <li class="breadcrumb-item">Manage Culture</li>
-        <li class="breadcrumb-item active">List Plants</li>
+        <li class="breadcrumb-plant"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-plant">Manage Culture</li>
+        <li class="breadcrumb-plant active">List Plants</li>
       </ol>
     </nav>
   </div>
@@ -38,25 +38,16 @@
                       <th scope="col">Nitrogen</th>
                       <th scope="col">Potatium</th>
                       <th scope="col">Soil Moisture</th>
-                      <th scope="col">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let item of paramsCultureList">
-                      <td>{{ item.temps_croissance }}</td>
-                      <td>{{ item.niv_ph }}</td>
-                      <td>{{ item.niv_phosphore }}</td>
-                      <td>{{ item.niv_azote }}</td>
-                      <td>{{ item.niv_potasium }}</td>
-                      <td>{{ item.taux_humidite }}</td>
-                      <td>
-                        <a (click)="delete(item.id)" class="btn-clickable"
-                          ><i class="bi bi-trash"></i></a
-                        >&nbsp;
-                        <a routerLink="edit-culture-param/{{ item.id }}"
-                          ><i class="bi bi-pencil-square"></i
-                        ></a>
-                      </td>
+                    <tr>
+                      <td>{{ param.temps_croissance }}</td>
+                      <td>{{ param.niv_ph }}</td>
+                      <td>{{ param.niv_phosphore }}</td>
+                      <td>{{ param.niv_azote }}</td>
+                      <td>{{ param.niv_potasium }}</td>
+                      <td>{{ param.taux_humidite }}</td>
                     </tr>
                   </tbody>
                 </table>

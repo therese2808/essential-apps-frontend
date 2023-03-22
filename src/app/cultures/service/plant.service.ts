@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Plant } from '../model/culture.model';
+import { Plant } from '../model/plant.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CultureService {
+export class PlantService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
     }),
   };
-  private readonly BASE_URL = 'http://localhost:3000/plants';
+  private readonly BASE_URL = 'http://localhost:8083/api/v1/plants/culture';
   constructor(private http: HttpClient) {}
 
   public listPlants(): Observable<Plant[]> {
