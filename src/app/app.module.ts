@@ -39,13 +39,10 @@ import { PagesLoginComponent } from './pages/pages-login/pages-login.component';
 import { PagesError404Component } from './pages/pages-error404/pages-error404.component';
 import { PagesBlankComponent } from './pages/pages-blank/pages-blank.component';
 import { CulturesModule } from './cultures/cultures.module';
-<<<<<<< HEAD
-import { FormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
-=======
 import { ParamCultureModule } from './param-culture/param-culture.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FileUploadModule } from 'ng2-file-upload';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -90,10 +87,7 @@ import { FileUploadModule } from 'ng2-file-upload';
     BrowserModule,
     AppRoutingModule,
     CulturesModule,
-<<<<<<< HEAD
-    FormsModule,
-    HttpClientModule
-=======
+    HttpClientModule,
     ParamCultureModule,
     ReactiveFormsModule,
     FormsModule
