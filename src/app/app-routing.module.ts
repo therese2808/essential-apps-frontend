@@ -71,8 +71,7 @@ const routes: Routes = [
   { path: 'user-profile', component: UsersProfileComponent },
   { path: 'cultures', loadChildren: () => CulturesModule },
   { path: 'sensor', loadChildren: () => import('./sensor/sensor.module').then(m => m.SensorModule) },
-  { path: 'cultures/params', loadChildren: () => ParamCultureModule },
-
+  { path: 'cultures/params', loadChildren: () => ParamCultureModule }
 ];
 
 @NgModule({

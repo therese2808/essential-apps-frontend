@@ -1,63 +1,60 @@
 <main id="main" class="main">
-  <div class="pagetitle">
-    <h1>Plants</h1>
-    <nav>
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
-        <li class="breadcrumb-item">Manage Node</li>
-        <li class="breadcrumb-item active">List Node</li>
-      </ol>
-    </nav>
-  </div>
-  <section class="section">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Nodes</h5>
-            <div class="row">
-              <div class="col-lg-6"><p>List of Node.</p></div>
-              <div class="col-lg-2 offset-4">
-                <a class="btn btn-primary rounded-pill" routerLink="new-plant">
-                  <i class="bi bi-plus add-btn"></i>ADD</a
-                >
+    <div class="pagetitle">
+      <h1>Sensor</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+          <li class="breadcrumb-item">Manage Node</li>
+          <li class="breadcrumb-item active">List Node</li>
+        </ol>
+      </nav>
+    </div>
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Nodes</h5>
+              <div class="row">
+                <div class="col-lg-6"><p>List of Node.</p></div>
+                <div class="col-lg-2 offset-4">
+                  <a class="btn btn-primary rounded-pill" routerLink="add">
+                    <i class="bi bi-plus add-btn"></i>ADD</a
+                  >
+                </div>
               </div>
+              <table class="table datatable">
+                <thead>
+                  <tr>
+                    <!-- <th scope="col">#</th> -->
+                    <th scope="col">Name</th>
+                    <th scope="col">User</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let n of nodes">
+                    <!-- <th scope="row">1</th> -->
+                    <td>{{n.name}}</td>
+                    <td  *ngFor="let u of n.user">
+                      {{u.name}} {{u.firstname}}
+                    </td>
+                    <td>
+                     <button (click)="Delete(n._id)"> <i class="bi bi-trash"></i>&nbsp;</button> 
+                      <a routerLink="edit/{{n._id}}"
+                        ><i class="bi bi-pencil-square">&nbsp;</i
+                      ></a>
+                      <a routerLink="read/{{n._id}}"
+                        ><i class="ri-eye-line"></i
+                      ></a>
+                    </td>
+                  </tr>  
+                </tbody>
+              </table>
             </div>
-            <table class="table datatable">
-              <thead>
-                <tr>
-                  <!-- <th scope="col">#</th> -->
-                  <th scope="col">Name</th>
-                  <th scope="col">User</th>
-                  <th scope="col">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let n of nodes">
-                  <!-- <th scope="row">1</th> -->
-                  <td>{{ n.name }}</td>
-                  <td *ngFor="let u of n.user">
-                    {{ u.name }} {{ u.firstname }}
-                  </td>
-
-                  <td>
-                    <a (click)="Delete(n._id)" class="btn-clickable"
-                      ><i class="bi bi-trash"></i></a
-                    >&nbsp;
-                    <a routerLink="edit/{{ n._id }}"
-                      ><i class="bi bi-pencil-square"></i
-                    ></a>
-                    &nbsp;
-                    <a routerLink="read/{{ n._id }}"
-                      ><i class="ri-eye-line"></i
-                    ></a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
+  </main>
+  

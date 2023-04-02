@@ -6,6 +6,7 @@ import { SensorComponent } from './sensor.component';
 import { AddComponent } from './add/add.component';
 import { EditComponent } from './edit/edit.component';
 import { ReadComponent } from './read/read.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { ReadComponent } from './read/read.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     SensorRoutingModule
   ]
 })
