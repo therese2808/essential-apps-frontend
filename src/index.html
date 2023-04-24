@@ -37,5 +37,14 @@
     <script src="assets/js/quill.min.js"></script>
     <script src="assets/js/simple-datatables.js"></script>
     <script src="assets/js/tinymce.min.js"></script>
+    <script src="https://cdn.socket.io/4.4.0/socket.io.min.js" integrity="sha384-1fOn6VtTq3PWwfsOrk45LnYcGosJwzMHv+Xh/Jx5303FVOXzEnw0EpLv30mtjmlj" crossorigin="anonymous">
+      var io = require('socket.io-client');
+      var socket = io.connect('http://127.0.0.1:8085/api/v1/sensors');
+          socket.on('connection', function(sock) 
+                  {
+                    console.log('Connected to socket!');
+                  });
+                
+    </script>
   </body>
 </html>

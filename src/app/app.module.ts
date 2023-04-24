@@ -44,6 +44,15 @@ import {HttpClientModule} from '@angular/common/http';
 import { ParamCultureModule } from './param-culture/param-culture.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SocketService } from './service/socket.service';
+import { environment } from 'src/environments/environment';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
+const config: SocketIoConfig = {
+	url: environment.SOCKET_ENDPOINT, // socket server url;
+	options: {
+		transports: ['websocket']
+	}
+}
 
 @NgModule({
   declarations: [
@@ -92,7 +101,8 @@ import { SocketService } from './service/socket.service';
     HttpClientModule,
     ParamCultureModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    SocketIoModule.forRoot(config) 
    ],
   providers: [SocketService],
   bootstrap: [AppComponent]

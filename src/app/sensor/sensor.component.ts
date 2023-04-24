@@ -4,6 +4,7 @@ import { Node } from '../models/node';
 import { User } from '../models/user';
 import { NodeServiceService } from '../service/node-service.service';
 import { UserServiceService } from '../service/user-service.service';
+import { SocketService } from '../service/socket.service';
 
 @Component({
   selector: 'app-sensor',
@@ -14,10 +15,11 @@ export class SensorComponent implements OnInit {
 
   nodes : Node[] = [];
 
-  constructor(private nodeService: NodeServiceService, private userService: UserServiceService, private router:Router) { }
+  constructor(private nodeService: NodeServiceService, private userService: UserServiceService, private router:Router, private socketService: SocketService) { }
 
   ngOnInit(): void {
     this.getAll();
+    
   }
   getAll(){
     this.nodeService.getNodes().subscribe({

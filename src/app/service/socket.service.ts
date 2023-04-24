@@ -1,23 +1,29 @@
 import { Injectable } from '@angular/core';
-import { io } from 'socket.io-client';
+import { io, Socket } from 'socket.io-client';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Node } from '../models/node';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SocketService {
 
-  socket:any;
-  constructor() { }
+  socket:Socket
   setupSocketConnection() {
     this.socket = io(environment.SOCKET_ENDPOINT);
-    this.socket.emit('my message', 'Hello there from Angular.');
   }
-
-  disconnect() {
-    if (this.socket) {
-        this.socket.disconnect();
-    }
-}
-
+  constructor() {
+   }
+  listenServer():Observable<any>{
+    return new Observable((subcribe)=>{
+      this.socket.on('newMessage', msg => {
+        subcribe.next(msg);
+      });
+    })
+  
+  }
+  sendMessage(msg: Node) {
+    this.socket.emit('sendMessage', { message: msg });
+  }
 }
