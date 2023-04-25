@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -40,19 +40,21 @@ import { PagesError404Component } from './pages/pages-error404/pages-error404.co
 import { PagesBlankComponent } from './pages/pages-blank/pages-blank.component';
 import { CulturesModule } from './cultures/cultures.module';
 import { FileUploadModule } from 'ng2-file-upload';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { ParamCultureModule } from './param-culture/param-culture.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SocketService } from './service/socket.service';
 import { environment } from 'src/environments/environment';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+import { initializeKeycloak } from './utils/app.init';
 
 const config: SocketIoConfig = {
-	url: environment.SOCKET_ENDPOINT, // socket server url;
-	options: {
-		transports: ['websocket']
-	}
-}
+  url: environment.SOCKET_ENDPOINT, // socket server url;
+  options: {
+    transports: ['websocket'],
+  },
+};
 
 @NgModule({
   declarations: [
@@ -102,9 +104,18 @@ const config: SocketIoConfig = {
     ParamCultureModule,
     ReactiveFormsModule,
     FormsModule,
-    SocketIoModule.forRoot(config) 
-   ],
-  providers: [SocketService],
-  bootstrap: [AppComponent]
+    SocketIoModule.forRoot(config),
+    KeycloakAngularModule,
+  ],
+  providers: [
+    SocketService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeKeycloak,
+      multi: true,
+      deps: [KeycloakService],
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

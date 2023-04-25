@@ -21,7 +21,7 @@ export class SocketService {
         subcribe.next(msg);
       });
     })
-  
+
   }
   sendMessage(msg: Node) {
     this.socket.emit('sendMessage', { message: msg });
