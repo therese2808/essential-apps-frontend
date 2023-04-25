@@ -50,11 +50,12 @@ import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { initializeKeycloak } from './utils/app.init';
 
 const config: SocketIoConfig = {
-  url: environment.SOCKET_ENDPOINT, // socket server url;
-  options: {
-    transports: ['websocket'],
-  },
-};
+	url: environment.SOCKET_ENDPOINT, // socket server url;
+	options: {
+		transports: ['websocket'],
+    autoConnect: false
+	}
+}
 
 @NgModule({
   declarations: [
