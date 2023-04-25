@@ -50,7 +50,8 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 const config: SocketIoConfig = {
 	url: environment.SOCKET_ENDPOINT, // socket server url;
 	options: {
-		transports: ['websocket']
+		transports: ['websocket'],
+    autoConnect: false
 	}
 }
 
