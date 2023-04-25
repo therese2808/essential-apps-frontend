@@ -4,14 +4,14 @@ export function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
       config: {
-        url: 'http://localhost:8080',
-        realm: 'your-realm',
-        clientId: 'your-client-id',
+        url: 'http://localhost:8180/',
+        realm: 'essential-app',
+        clientId: 'essential-client',
       },
-      // initOptions: {
-      //   onLoad: 'check-sso',
-      //   silentCheckSsoRedirectUri:
-      //     window.location.origin + '/assets/silent-check-sso.html'
-      // }
+      initOptions: {
+        //   onLoad: 'login-required',
+        flow: 'implicit',
+      },
+      loadUserProfileAtStartUp: true,
     });
 }
