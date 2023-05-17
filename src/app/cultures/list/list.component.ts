@@ -1,6 +1,8 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { PlantService } from '../service/plant.service';
 import { Plant } from '../model/plant.model';
+import { DiseaseModel } from 'src/app/models/diseases.model';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-list',
@@ -10,7 +12,8 @@ import { Plant } from '../model/plant.model';
 export class ListComponent implements OnInit {
   constructor(
     private elementRef: ElementRef,
-    private palntService: PlantService
+    private palntService: PlantService,
+    private http:HttpClient
   ) {}
   public plantList: Plant[] = [];
   //plant!: Plant;
@@ -37,4 +40,20 @@ export class ListComponent implements OnInit {
   showId(id: number) {
     console.log(id);
   }
+
+  selectedFile!: File
+  disease:DiseaseModel
+
+  
+  onChangeFile(event:any):void{
+    this.selectedFile = <File>event.target.files[0];
+  }
+
+ 
+  upload():void{
+    const formData = new FormData();
+    formData.append('files', this.selectedFile, this.selectedFile.name);
+    this.http.post("http://localhost:8000/entities", formData).subscribe(res=>console.log(res))
+  }
+
 }

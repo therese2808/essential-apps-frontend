@@ -9,9 +9,7 @@ export function initializeKeycloak(keycloak: KeycloakService) {
         clientId: 'essential-client',
       },
       initOptions: {
-        //   onLoad: 'login-required',
         flow: 'implicit',
       },
-      loadUserProfileAtStartUp: true,
     });
 }

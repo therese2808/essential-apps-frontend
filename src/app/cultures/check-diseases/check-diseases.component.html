@@ -1,0 +1,21 @@
+<main id="main" class="main">
+    <div class="pagetitle">
+      <h1>Plants</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+          <li class="breadcrumb-item">Manage Culture</li>
+          <li class="breadcrumb-item active">Diseases</li>
+        </ol>
+        
+      </nav>
+    </div>
+    <ngx-dropzone (change)="onChangeFile($event)">
+      <ngx-dropzone-label>Upload an image</ngx-dropzone-label>
+      <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+      </ngx-dropzone-preview>
+    </ngx-dropzone>
+    <button type="button" class="btn btn-primary" (click)="upload()">upload</button>
+  </main>
+  

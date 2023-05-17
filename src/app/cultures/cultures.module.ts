@@ -9,9 +9,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ListCultureParamComponent } from './list-culture-param/list-culture-param.component';
+import { CheckDiseasesComponent } from './check-diseases/check-diseases.component';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 @NgModule({
-  declarations: [ListComponent, AddComponent, EditComponent, ListCultureParamComponent],
+  declarations: [ListComponent, AddComponent, EditComponent, ListCultureParamComponent, CheckDiseasesComponent],
   imports: [
     CommonModule,
     CulturesRoutingModule,
@@ -19,6 +21,7 @@ import { ListCultureParamComponent } from './list-culture-param/list-culture-par
     HttpClientModule,
     RouterModule,
     ReactiveFormsModule,
+    NgxDropzoneModule
   ],
 })
 export class CulturesModule {}

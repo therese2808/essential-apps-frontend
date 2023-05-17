@@ -7,10 +7,31 @@
         <li class="breadcrumb-item">Manage Culture</li>
         <li class="breadcrumb-item active">List Plants</li>
       </ol>
-      <a routerLink="new-plant" class="btn btn-primary">add new plant</a>
+      
     </nav>
   </div>
+  <div class="row">
+    <div class="toast" *ngIf="disease" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <img src="..." class="rounded me-2" alt="...">
+        <strong class="me-auto">Bootstrap</strong>
+        <small>11 mins ago</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Hello, world! This is a toast message.
+      </div>
+    </div>
+  </div>
   <section class="section">
+    <div class="row d-flex flex-row-reverse">
+      <div class="col-lg-5">
+        <input class="form-control" (change)="onChangeFile($event)" type="file" id="formFile">
+        <button type="button" class="btn btn-primary" (click)="upload()">upload</button>
+        </div>
+      <div class="col-lg-1"><a routerLink="new-plant"><i class="bi bi-plus-circle fs-4"></i></a></div>
+
+    </div>
     <div class="row align-items-top">
       <div class="col-lg-3" *ngFor="let plant of plantList">
         <div class="card">

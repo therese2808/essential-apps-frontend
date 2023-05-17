@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Plant } from '../model/plant.model';
+import { DiseaseModel } from 'src/app/models/diseases.model';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +14,7 @@ export class PlantService {
     }),
   };
   private readonly BASE_URL = 'http://localhost:8083/api/v1/plants/culture';
+  private baseUrlFastApi = "http://localhost:8000/entities";
   constructor(private http: HttpClient) {}
 
   public listPlants(): Observable<Plant[]> {
@@ -41,5 +43,9 @@ export class PlantService {
       JSON.stringify(plant),
       this.httpOptions
     );
+  }
+
+  public checkPlantDiseas(image:File):Observable<DiseaseModel>{
+    return this.http.post<DiseaseModel>(`${this.baseUrlFastApi}`, image);
   }
 }
