@@ -6,7 +6,7 @@ import { Moisture } from '../models/moisture';
 })
 export class MoistureService {
 
-  apiUrl:string = "http://localhost:8085/api/v1/moisture";
+  apiUrl:string = "http://localhost:8085/api/v1/sensors/moisture";
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'

@@ -4,7 +4,12 @@
 
 export const environment = {
   production: false,
-  SOCKET_ENDPOINT: 'http://127.0.0.1:8085/api/v1/sensors'
+  SOCKET_ENDPOINT: 'ws://localhost:3000',
+  "secure": false,
+        "ws": true,
+        "changeOrigin": true,
+        "logLevel": "debug",
+        "pathRewrite": { }
 };
 
 /*

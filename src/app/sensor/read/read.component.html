@@ -37,31 +37,33 @@
                         </div>
                         <div class="row">
                         <div class="col-lg-3 col-md-4 label">Moisture</div>
-                        <div class="col-lg-9 col-md-8">{{moisture.value}}</div>
+                        <div class="col-lg-9 col-md-8"> {{moisture.value}}</div>
                         </div>
                         <div class="row">
                         <div class="col-lg-3 col-md-4 label">Greenhouse Temperature</div>
-                        <div class="col-lg-9 col-md-8">{{dht11.temperature}}</div>
+                        <div class="col-lg-9 col-md-8"> {{dht11.temperature}}</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-3 col-md-4 label">Greenhouse Humidity</div>
-                            <div class="col-lg-9 col-md-8">{{dht11.humidity}}</div>
+                            <div class="col-lg-9 col-md-8">{{dht11.humidity}}%</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-3 col-md-4 label">Fire</div>
-                            <div class="col-lg-9 col-md-8">{{fire.value}}</div>
+                            <div class="col-lg-9 col-md-8" *ngIf="fire.value === 1">Yes</div>
+                            <div class="col-lg-9 col-md-8" *ngIf="fire.value === 0">No</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-3 col-md-4 label">Water </div>
-                            <div class="col-lg-9 col-md-8">{{water.value}}</div>
+                            <div class="col-lg-9 col-md-8">{{water.value}} m^3</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-3 col-md-4 label">Light </div>
-                            <div class="col-lg-9 col-md-8">{{light.value}}</div>
+                            <div class="col-lg-9 col-md-8" *ngIf="light.value === 1">DARK</div>
+                            <div class="col-lg-9 col-md-8" *ngIf="light.value === 0">Bright</div>
                         </div>
                         <div class="row">
                         <div class="col-lg-3 col-md-4 label">Camera</div>
-                        <div class="col-lg-9 col-md-8">(436) 486-3538 x29071</div>
+                        <div class="col-lg-9 col-md-8">Desactivated</div>
                         </div>
                         <!-- <div class="row">
                         <div class="col-lg-3 col-md-4 label">Email</div>

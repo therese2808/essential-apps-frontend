@@ -1,4 +1,4 @@
 export class Moisture {
-    name!:string;
+    time:{hr:String, date:String}
     value!:Number
 }

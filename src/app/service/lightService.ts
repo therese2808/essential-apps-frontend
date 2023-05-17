@@ -7,7 +7,7 @@ import { Light } from '../models/light';
 })
 export class LightService {
 
-  apiUrl:string = "http://localhost:8085/api/v1/Light";
+  apiUrl:string = "http://localhost:8085/api/v1/sensors/light"
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'

@@ -7,7 +7,7 @@ import { Temp } from '../models/temp';
 })
 export class TempService {
 
-  apiUrl:string = "http://localhost:8085/api/v1/temp";
+  apiUrl:string = "http://localhost:8085/api/v1/sensors/temp";
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'

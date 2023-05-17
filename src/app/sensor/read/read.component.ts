@@ -12,6 +12,11 @@ import { TempService } from 'src/app/service/temp.service';
 import { UserServiceService } from 'src/app/service/user-service.service';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { Socket } from 'ngx-socket-io';
+import { Moisture } from 'src/app/models/moisture';
+import { Light } from 'src/app/models/light';
+import { Dht11 } from 'src/app/models/dht11';
+import { Fire } from 'src/app/models/fire';
+import { Water } from 'src/app/models/water';
 
 @Component({
   selector: 'app-read',
@@ -30,6 +35,7 @@ export class ReadComponent implements OnInit {
   dht11:any;
   fire:any;
   water:any
+  node:any
   constructor(private nodeService: NodeServiceService, private tempService: TempService,
     private moistureService: MoistureService, private lightService: LightService,
     private waterService: WaterService, private dht11Service: Dht11Service, 
@@ -39,6 +45,9 @@ export class ReadComponent implements OnInit {
       }
 
   ngOnInit(): void {
+    //this.node= this.nodeService.getsocket();
+    //console.log(this.node);
+    
     this.getById(this.routeActivated.snapshot.params['id']); 
   }
   onChange(change:Node){
@@ -51,23 +60,28 @@ export class ReadComponent implements OnInit {
   onCreate(node:Node){
 
   }
-  getById(id:string) {
-    this.socket.emit('NodeSocket',this.nodes)
-    this.nodeService.getNodeById(id).subscribe(
-     data=>{
-       this.value=data;
-       this.getByIdUser(this.value.user.slice(-1));
-       this.getByIdTemp(this.value.temp.slice(-1));
-       this.getByIdLigth(this.value.ligth.slice(-1));
-       this.getByIdWater(this.value.water.slice(-1));
-       this.getByIdFire(this.value.fire.slice(-1));
-       this.getByIdDht11(this.value.dht11.slice(-1));
-       this.getByIdMoisture(this.value.moisture.slice(-1));
-      //  console.log(data);
+  
+ getById(id:string) {
+  //this.node = this.nodeService.getNodeById(id);
+  //console.log(this.node);
+  
+//     this.socket.emit('NodeSocket',this.nodes)
+     this.nodeService.getNodeById(id).subscribe(
+      data=>{
+        this.value=data;
+        this.user=this.getByIdUser(this.value.user);
+        this.temp= this.getByIdTemp(this.value.temp.slice(-1));
+        this.light=  this.getByIdLigth(this.value.light.slice(-1));
+        this.water=  this.getByIdWater(this.value.water.slice(-1));
+        this.fire=  this.getByIdFire(this.value.fire.slice(-1));
+        this.dht11= this.getByIdDht11(this.value.dht11.slice(-1));
+        this.moisture=  this.getByIdMoisture(this.value.moisture.slice(-1));
+  console.log(this.getByIdFire(this.value.fire.slice(-1)));
        
        
-   });
- }
+   }
+);
+  }
  getByIdUser(id:string) {
   this.userService.getUserById(id).subscribe(
    data=>{

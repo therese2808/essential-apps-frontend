@@ -7,7 +7,7 @@ import { Dht11 } from '../models/dht11';
 })
 export class Dht11Service {
 
-  apiUrl:string = "http://localhost:8085/api/v1/dht11";
+  apiUrl:string = "http://localhost:8085/api/v1/sensors/dht11";
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
