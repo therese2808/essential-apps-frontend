@@ -47,7 +47,8 @@ import { SocketService } from './service/socket.service';
 import { environment } from 'src/environments/environment';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
-import { initializeKeycloak } from './utils/app.init';
+import { NodeServiceService } from './service/node-service.service';
+// import { initializeKeycloak } from './utils/app.init';
 
 const config: SocketIoConfig = {
 	url: environment.SOCKET_ENDPOINT, // socket server url;
@@ -109,13 +110,14 @@ const config: SocketIoConfig = {
     KeycloakAngularModule,
   ],
   providers: [
-    SocketService,
-    {
-      provide: APP_INITIALIZER,
-      useFactory: initializeKeycloak,
-      multi: true,
-      deps: [KeycloakService],
-    },
+    NodeServiceService
+    // SocketService,
+    // {
+    //   provide: APP_INITIALIZER,
+    //   useFactory: initializeKeycloak,
+    //   multi: true,
+    //   deps: [KeycloakService],
+    // },
   ],
   bootstrap: [AppComponent],
 })

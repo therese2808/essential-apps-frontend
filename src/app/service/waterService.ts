@@ -7,7 +7,7 @@ import { Water } from '../models/water';
 })
 export class WaterService {
 
-  apiUrl:string = "http://localhost:8085/api/v1/water";
+  apiUrl:string = "http://localhost:8085/api/v1/sensors/water";
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'

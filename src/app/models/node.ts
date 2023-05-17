@@ -10,12 +10,14 @@ import { Dht11 } from "./dht11";
 export class Node {
     _id!:string;
     name!: string;
-    user!:User[];
+    user!:User;
     temp!:Temp[];
     cam!:Cam[];
     ligth!:Light[];
     dht11!:Dht11[];
     fire!:Fire[];
     water!:Water[];
-    moisture!:Moisture
+    moisture!:Moisture[] ;
+    fan!:Number;
+    pump!:Number
 }

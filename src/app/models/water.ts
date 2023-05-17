@@ -1,4 +1,4 @@
 export class Water {
-    name!:string;
+    time:{hr:String, date:String}
     value!:number;
 }

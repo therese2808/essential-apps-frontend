@@ -34,10 +34,11 @@ import { PagesRegisterComponent } from './pages/pages-register/pages-register.co
 import { UsersProfileComponent } from './pages/users-profile/users-profile.component';
 import { CulturesModule } from './cultures/cultures.module';
 import { ParamCultureModule } from './param-culture/param-culture.module';
-import { AuthGuard } from './utils/app.guard';
+// import { AuthGuard } from './utils/app.guard';
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: '', component: DashboardComponent},
+  // { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'alerts', component: AlertsComponent },
   { path: 'accordion', component: AccordionComponent },

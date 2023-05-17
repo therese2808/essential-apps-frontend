@@ -17,7 +17,7 @@
               <h5 class="card-title">Nodes</h5>
               <div class="row">
                 <div class="col-lg-6"><p>List of Node.</p></div>
-                <div class="col-lg-2 offset-4">
+                <div class="col-lg-2 offset-10">
                   <a class="btn btn-primary rounded-pill" routerLink="add">
                     <i class="bi bi-plus add-btn"></i>ADD</a
                   >
@@ -29,18 +29,41 @@
                     <!-- <th scope="col">#</th> -->
                     <th scope="col">Name</th>
                     <th scope="col">User</th>
+                    <th scope="col">Fan</th>
+                    <th scope="col">Pump</th>
                     <th scope="col">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let n of nodes">
-                    <!-- <th scope="row">1</th> -->
                     <td>{{n.name}}</td>
-                    <td  *ngFor="let u of n.user">
-                      {{u.name}} {{u.firstname}}
+                    <td >
+                     {{n.user.name}} {{n.user.firstname}}
                     </td>
                     <td>
-                     <button (click)="Delete(n._id)"> <i class="bi bi-trash"></i>&nbsp;</button> 
+                      <button (click)="toggleFan(n._id)" [disabled]="n.fan !== 2 && n.fan !== 3" [ngStyle]="{'background-color': (n.fan === 2 ? '#559AAF' : '#8D8989')}">
+                        {{ n.fan === 2 ? 'Activé' : 'Désactivé' }}
+                      </button>
+                    </td>
+                    <td>
+                      <button (click)="togglePump()" [disabled]="n.pump !== 2 && n.pump !== 3"  [ngStyle]="{'background-color': (n.pump === 2 ? '#559AAF' : '#8D8989')}">
+                        {{ n.pump === 2 ? 'Activé' : 'Désactivé' }}
+                      </button>
+                    </td>
+                    <!-- <td>
+                      <label class="toggle-button">
+                         <input type="checkbox" [checked]="fan !== 2 && fan !== 3" (change)="toggleFan($event)" >
+                        <span class="slider"></span>
+                      </label>
+                     </td> -->
+                     <!-- <td >
+                      <label class="toggle-button">
+                        <input type="checkbox" [checked]="n.pump === 2|| n.pump === 1" (change)="togglePump($event)" >
+                       <span class="slider"></span>
+                     </label> 
+                     </td> -->
+                    <td>
+                     <button (click)="Delete(n._id)"> <i class="bi bi-trash" style="border:none; color: rgb(92, 156, 240);"></i>&nbsp;</button> 
                       <a routerLink="edit/{{n._id}}"
                         ><i class="bi bi-pencil-square">&nbsp;</i
                       ></a>

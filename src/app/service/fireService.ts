@@ -7,7 +7,7 @@ import { Fire } from '../models/fire';
 })
 export class FireService {
 
-  apiUrl:string = "http://localhost:8085/api/v1/fire";
+  apiUrl:string = "http://localhost:8085/api/v1/sensors/fire";
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
