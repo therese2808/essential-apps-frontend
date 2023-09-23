@@ -32,9 +32,13 @@ import { PagesFaqComponent } from './pages/pages-faq/pages-faq.component';
 import { PagesLoginComponent } from './pages/pages-login/pages-login.component';
 import { PagesRegisterComponent } from './pages/pages-register/pages-register.component';
 import { UsersProfileComponent } from './pages/users-profile/users-profile.component';
+import { CulturesModule } from './cultures/cultures.module';
+import { ParamCultureModule } from './param-culture/param-culture.module';
+// import { AuthGuard } from './utils/app.guard';
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent },
+  { path: '', component: DashboardComponent},
+  // { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'alerts', component: AlertsComponent },
   { path: 'accordion', component: AccordionComponent },
@@ -67,10 +71,20 @@ const routes: Routes = [
   { path: 'pages-login', component: PagesLoginComponent },
   { path: 'pages-register', component: PagesRegisterComponent },
   { path: 'user-profile', component: UsersProfileComponent },
+  {
+    path: 'cultures',
+    loadChildren: () => CulturesModule,
+  },
+  {
+    path: 'sensor',
+    loadChildren: () =>
+      import('./sensor/sensor.module').then((m) => m.SensorModule),
+  },
+  { path: 'cultures/params', loadChildren: () => ParamCultureModule },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

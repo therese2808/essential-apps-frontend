@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  SOCKET_ENDPOINT: 'ws://localhost:3000',
+  "secure": false,
+        "ws": true,
+        "changeOrigin": true,
+        "logLevel": "debug",
+        "pathRewrite": { }
 };
 
 /*

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -38,6 +38,25 @@ import { PagesRegisterComponent } from './pages/pages-register/pages-register.co
 import { PagesLoginComponent } from './pages/pages-login/pages-login.component';
 import { PagesError404Component } from './pages/pages-error404/pages-error404.component';
 import { PagesBlankComponent } from './pages/pages-blank/pages-blank.component';
+import { CulturesModule } from './cultures/cultures.module';
+import { FileUploadModule } from 'ng2-file-upload';
+import { HttpClientModule } from '@angular/common/http';
+import { ParamCultureModule } from './param-culture/param-culture.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SocketService } from './service/socket.service';
+import { environment } from 'src/environments/environment';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+import { NodeServiceService } from './service/node-service.service';
+// import { initializeKeycloak } from './utils/app.init';
+
+const config: SocketIoConfig = {
+	url: environment.SOCKET_ENDPOINT, // socket server url;
+	options: {
+		transports: ['websocket'],
+    autoConnect: false
+	}
+}
 
 @NgModule({
   declarations: [
@@ -76,13 +95,30 @@ import { PagesBlankComponent } from './pages/pages-blank/pages-blank.component';
     PagesRegisterComponent,
     PagesLoginComponent,
     PagesError404Component,
-    PagesBlankComponent
+    PagesBlankComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CulturesModule,
+    FormsModule,
+    HttpClientModule,
+    ParamCultureModule,
+    ReactiveFormsModule,
+    FormsModule,
+    SocketIoModule.forRoot(config),
+    KeycloakAngularModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    NodeServiceService
+    // SocketService,
+    // {
+    //   provide: APP_INITIALIZER,
+    //   useFactory: initializeKeycloak,
+    //   multi: true,
+    //   deps: [KeycloakService],
+    // },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
